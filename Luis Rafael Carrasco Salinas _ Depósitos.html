@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Luis Rafael Carrasco Salinas | Depósitos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme:dark;
+  --bg:#050505;--card:#0f0f0f;--gold:#d4af37;--gold-l:#f3d97a;--gold-d:#8a6d1a;--text:#f5efe0;--muted:#a89f87;
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{background:radial-gradient(ellipse at top,#1a1505 0%,var(--bg) 55%) fixed;color:var(--text);font-family:Inter,system-ui,sans-serif;min-height:100vh;display:flex;justify-content:center;padding:28px 16px}
+.wrap{width:100%;max-width:440px;display:flex;flex-direction:column;gap:22px;align-items:center}
+.brand{text-align:center}
+.brand small{letter-spacing:.35em;font-size:11px;color:var(--gold);text-transform:uppercase}
+h1{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;font-size:clamp(30px,8vw,40px);line-height:1.1;margin-top:10px;background:linear-gradient(135deg,var(--gold-l),var(--gold),var(--gold-d));-webkit-background-clip:text;background-clip:text;color:transparent}
+.line{width:70px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:14px auto 0}
+.sub{color:var(--muted);font-size:14px;margin-top:12px}
+.credit{width:100%;aspect-ratio:1.586;border-radius:20px;padding:24px;position:relative;overflow:hidden;background:linear-gradient(135deg,#1b1608 0%,#0a0a0a 55%,#241c07 100%);border:1px solid var(--gold-d);box-shadow:0 20px 50px rgba(0,0,0,.7),0 0 40px rgba(212,175,55,.12);display:flex;flex-direction:column;justify-content:space-between}
+.credit::after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 35%,rgba(243,217,122,.10) 50%,transparent 65%);pointer-events:none}
+.top{display:flex;justify-content:space-between;align-items:center}
+.bank{font-weight:600;letter-spacing:.08em;font-size:15px;color:var(--gold-l)}
+.chip{width:44px;height:33px;border-radius:7px;background:linear-gradient(135deg,var(--gold-l),var(--gold-d));opacity:.9}
+.num{font-family:"Courier New",monospace;font-size:clamp(19px,5.6vw,25px);letter-spacing:.12em;color:var(--text);text-shadow:0 1px 8px rgba(212,175,55,.3)}
+.bottom small{display:block;font-size:10px;letter-spacing:.2em;color:var(--gold);text-transform:uppercase;margin-bottom:4px}
+.bottom span{font-size:15px;font-weight:500;letter-spacing:.06em;text-transform:uppercase}
+.btn{width:100%;padding:16px;border-radius:14px;border:0;font:600 15px Inter,system-ui,sans-serif;letter-spacing:.04em;cursor:pointer;color:#111;background:linear-gradient(135deg,var(--gold-l),var(--gold) 50%,var(--gold-d));box-shadow:0 8px 24px rgba(212,175,55,.25);transition:transform .15s}
+.btn:active{transform:scale(.98)}
+.qr{width:100%;background:var(--card);border:1px solid #2a2310;border-radius:20px;padding:26px 20px;text-align:center}
+.qr h2{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;font-size:22px;color:var(--gold)}
+.qr p{color:var(--muted);font-size:13px;margin:6px 0 18px}
+#qrbox{display:inline-block;background:#fff;padding:14px;border-radius:14px;border:3px solid var(--gold)}
+#qrbox svg{display:block;width:min(220px,60vw);height:auto}
+.nfc{color:var(--muted);font-size:12px;text-align:center;letter-spacing:.08em}
+.nfc b{color:var(--gold);font-weight:500}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <header class="brand">
+    <small>Datos para transferencia</small>
+    <h1>Luis Rafael<br>Carrasco Salinas</h1>
+    <div class="line"></div>
+    <p class="sub">Acerca tu celular o escanea el QR para depositarme</p>
+  </header>
+
+  <section class="credit" aria-label="Tarjeta de débito">
+    <div class="top"><span class="bank">SPIN BY OXXO</span><div class="chip"></div></div>
+    <div class="num" id="num">4217 4702 7059 1882</div>
+    <div class="bottom"><small>Titular</small><span>Luis Rafael Carrasco Salinas</span></div>
+  </section>
+
+  <button class="btn" id="copy">Copiar número de tarjeta</button>
+
+  <section class="qr">
+    <h2>Escanea para transferir</h2>
+    <p>Abre la cámara o tu app bancaria</p>
+    <div id="qrbox"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-4 -4 29 29" width="220" height="220" shape-rendering="crispEdges" role="img" aria-label="Código QR de la tarjeta"><rect x="-4" y="-4" width="29" height="29" fill="#fff"/><path d="M0,0h7v1h-7zM9,0h1v1h-1zM11,0h2v1h-2zM14,0h7v1h-7zM0,1h1v1h-1zM6,1h1v1h-1zM8,1h2v1h-2zM11,1h1v1h-1zM14,1h1v1h-1zM20,1h1v1h-1zM0,2h1v1h-1zM2,2h3v1h-3zM6,2h1v1h-1zM8,2h2v1h-2zM12,2h1v1h-1zM14,2h1v1h-1zM16,2h3v1h-3zM20,2h1v1h-1zM0,3h1v1h-1zM2,3h3v1h-3zM6,3h1v1h-1zM9,3h1v1h-1zM11,3h1v1h-1zM14,3h1v1h-1zM16,3h3v1h-3zM20,3h1v1h-1zM0,4h1v1h-1zM2,4h3v1h-3zM6,4h1v1h-1zM8,4h1v1h-1zM12,4h1v1h-1zM14,4h1v1h-1zM16,4h3v1h-3zM20,4h1v1h-1zM0,5h1v1h-1zM6,5h1v1h-1zM8,5h1v1h-1zM11,5h2v1h-2zM14,5h1v1h-1zM20,5h1v1h-1zM0,6h7v1h-7zM8,6h1v1h-1zM10,6h1v1h-1zM12,6h1v1h-1zM14,6h7v1h-7zM8,7h5v1h-5zM0,8h2v1h-2zM3,8h1v1h-1zM6,8h2v1h-2zM9,8h2v1h-2zM14,8h3v1h-3zM18,8h2v1h-2zM0,9h3v1h-3zM4,9h1v1h-1zM9,9h1v1h-1zM14,9h2v1h-2zM17,9h2v1h-2zM3,10h1v1h-1zM6,10h1v1h-1zM8,10h3v1h-3zM12,10h2v1h-2zM17,10h1v1h-1zM20,10h1v1h-1zM1,11h1v1h-1zM3,11h2v1h-2zM7,11h1v1h-1zM9,11h1v1h-1zM11,11h1v1h-1zM15,11h2v1h-2zM18,11h2v1h-2zM0,12h4v1h-4zM5,12h2v1h-2zM8,12h1v1h-1zM10,12h1v1h-1zM12,12h1v1h-1zM14,12h1v1h-1zM16,12h1v1h-1zM8,13h1v1h-1zM11,13h1v1h-1zM15,13h2v1h-2zM18,13h2v1h-2zM0,14h7v1h-7zM8,14h3v1h-3zM13,14h1v1h-1zM15,14h1v1h-1zM17,14h2v1h-2zM0,15h1v1h-1zM6,15h1v1h-1zM10,15h4v1h-4zM16,15h2v1h-2zM19,15h1v1h-1zM0,16h1v1h-1zM2,16h3v1h-3zM6,16h1v1h-1zM11,16h1v1h-1zM14,16h1v1h-1zM16,16h3v1h-3zM20,16h1v1h-1zM0,17h1v1h-1zM2,17h3v1h-3zM6,17h1v1h-1zM8,17h1v1h-1zM11,17h1v1h-1zM15,17h1v1h-1zM18,17h3v1h-3zM0,18h1v1h-1zM2,18h3v1h-3zM6,18h1v1h-1zM9,18h2v1h-2zM12,18h1v1h-1zM15,18h1v1h-1zM17,18h1v1h-1zM20,18h1v1h-1zM0,19h1v1h-1zM6,19h1v1h-1zM8,19h3v1h-3zM13,19h3v1h-3zM17,19h1v1h-1zM19,19h1v1h-1zM0,20h7v1h-7zM8,20h5v1h-5zM15,20h1v1h-1zM17,20h2v1h-2z" fill="#000"/></svg></div>
+  </section>
+
+  <p class="nfc"><b>NFC</b> · Toca la tarjeta con tu celular &nbsp;|&nbsp; <b>QR</b> · Escanea el código</p>
+</main>
+
+<script>
+var CARD="4217470270591882";
+var b=document.getElementById("copy");
+b.addEventListener("click",function(){
+  function ok(){b.textContent="¡Copiado!";setTimeout(function(){b.textContent="Copiar número de tarjeta"},2000)}
+  try{navigator.clipboard.writeText(CARD).then(ok,fb)}catch(e){fb()}
+  function fb(){var t=document.createElement("textarea");t.value=CARD;document.body.appendChild(t);t.select();try{document.execCommand("copy");ok()}catch(e){}t.remove()}
+});
+</script>
+</body>
+</html>
